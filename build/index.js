@@ -20,7 +20,7 @@ var middleware = function (req, res, next) {
     var pc_app = req.headers['x-pc-app'];
     if (access_token) {
         if (pc_app) {
-            axios_1.default.get('https://easeauth.cloud.piebits.org/fetch/user', {
+            axios_1.default.get('https://easeauth.cloud.piebits.org/actions/fetch/user', {
                 headers: {
                     'Authorization': access_token,
                     'x-pc-app': pc_app
@@ -35,7 +35,7 @@ var middleware = function (req, res, next) {
             });
         }
         else {
-            res.send(401).send('[x-pcs-app] header missing from request');
+            res.status(401).send('[x-pc-app] header missing from request');
         }
     }
     else {

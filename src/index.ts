@@ -17,7 +17,7 @@ const middleware = (req: Request, res: Response, next: NextFunction) => {
   if (access_token) {
     if (pc_app) {
       axios.get(
-        'https://easeauth.cloud.piebits.org/fetch/user',
+        'https://easeauth.cloud.piebits.org/actions/fetch/user',
         {
           headers: {
             'Authorization': access_token,
@@ -37,7 +37,7 @@ const middleware = (req: Request, res: Response, next: NextFunction) => {
         res.status(401).send('Unauthorized Access')
       })
     } else {
-      res.send(401).send('[x-pcs-app] header missing from request')
+      res.status(401).send('[x-pc-app] header missing from request')
     }
   } else {
     res.status(401).send('[authorization] header missing from request')
