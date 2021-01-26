@@ -30,8 +30,9 @@ var middleware = function (req, res, next) {
                 var user = __assign({ id: data._id, provider: data.provider, status: data.status }, data.data);
                 req.user = user;
                 next();
-            }).catch(function () {
-                res.status(401).send('Unauthorized Access');
+            }).catch(function (_a) {
+                var response = _a.response;
+                res.status(response.data.status_code).send(response.data);
             });
         }
         else {

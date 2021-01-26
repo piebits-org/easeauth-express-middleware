@@ -33,8 +33,8 @@ const middleware = (req: Request, res: Response, next: NextFunction) => {
         }
         req.user = user
         next()
-      }).catch(() => {
-        res.status(401).send('Unauthorized Access')
+      }).catch(({ response }) => {
+        res.status(response.data.status_code).send(response.data)
       })
     } else {
       res.status(401).send('[x-pc-app] header missing from request')
