@@ -1,6 +1,6 @@
 {
   "name": "@piebits/easeauth-express-middleware",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Ease Auth Express Middleware that Validates Access Token and Returns User Data on Validation",
   "main": "build/index.js",
   "module": "src/index.ts",
