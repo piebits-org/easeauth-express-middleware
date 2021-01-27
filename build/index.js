@@ -32,7 +32,7 @@ var middleware = function (req, res, next) {
                 next();
             }).catch(function (_a) {
                 var response = _a.response;
-                res.status(response.data.status_code).send(response.data);
+                res.status(response.status).send(response.data);
             });
         }
         else {

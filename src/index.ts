@@ -34,7 +34,7 @@ const middleware = (req: Request, res: Response, next: NextFunction) => {
         req.user = user
         next()
       }).catch(({ response }) => {
-        res.status(response.data.status_code).send(response.data)
+        res.status(response.status).send(response.data)
       })
     } else {
       res.status(401).send('[x-pc-app] header missing from request')
